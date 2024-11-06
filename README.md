@@ -9,3 +9,5 @@ Este script irá entrar nas pastas account e authorizer e executar arquivos de b
 
 Cada um deles vai criar uma imagem docker dos respectivos projetos.
 Depois de criadas as imagens, o comando de build irá subir uma série de containers definidos no arquivo docker-compose.yml tb na pasta raiz.
+
+![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
