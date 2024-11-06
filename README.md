@@ -12,10 +12,21 @@ Depois de criadas as imagens, o comando de build irá subir uma série de contai
 
 ### Arquitetura da solução
 
-A solução foi pensada da seguinte maneira: um serviço é responsável por receber as requisições dos comerciantes e é responsável 
-por registrar uma transação (persistir) no mecanismo de persistencia configurado (para esta poc um banco relacional).
-Este serviço foi projetado usando principios de arquitetura limpa e arquitetura hexagonal. Foi dividido nas seguintes camadas
-* aplicação: por web e seus adaptadores (controller rest)
-* domínio: Casos de Use, Entidades e Gateways (interfaces)
-* infrastrutura: adaptadores pros Gateways da camada de domínio (banco e cliente http)
+A solução foi pensada da seguinte maneira, existe uma API REST responsável pela autorização que se cominica com outro mmicroserviço responsável
+pelas contas e saldos (carteiras de benefícios) de cada beneficiário.
+
+São respectivamente AuthorizerService e AccountService.
+
+# Authorizer Service 
+Responsável por receber as requisições dos comerciantes e registrar a transação (persistir).
+Este foi organizado usando principios das arquiteturas limpa e hexagonal e dividido nas seguintes camadas.
+* **aplicação**: porta web e seus adaptadores (controller rest)
+* **domínio**: casos de uso, entidades e gateways (interfaces)
+* **infrastrutura**: adaptadores pros gateways da camada de domínio (banco e cliente http)
+
+# Account Service 
+Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
+Este foi organizado padrão MVC, bem simples controler -> service -> repository -> entity
+
+Abaixo segue uma imagem simplificada da arquitetura geral.
 ![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
