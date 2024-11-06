@@ -67,3 +67,14 @@ sem impactar nos "chamadores".
 
 ![Alt text](img/interacoes-de-dominio.drawio.png?raw=true "Title")
 
+### L4 Apenas uma transação por vez
+
+![Alt text](img/garantia-de-1-transacao-por-vez.drawio.png?raw=true "Title")
+
+Como provavelmente, em um cenário de produção, uma transação envolve mais uma operação de banco de dados dentre eleas consultas e alterações
+pensei em encapsulartodas as operações críticas necessárias para manter um estado consitente da transação em poucos, objetos e métodos
+e envolver toda a execução em um objeto Account, por exemplo. Ao atualizar a conta (account), o método seria anotado com @Transactional, caso fosse usada alguma linguagem 
+que rode na JVM. Além disso a execução da transação estaria controlada dentro de um bloco try/catch, para:
+* Havendo erro, rollback em toda a operação
+* Registrar o erro log, monitoria
+* possível mecanismo de retentativa (fila para tentativas falhas?)
