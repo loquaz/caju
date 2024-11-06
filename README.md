@@ -10,7 +10,6 @@ Este script irá entrar nas pastas account e authorizer e executar arquivos de b
 Cada um deles vai criar uma imagem docker dos respectivos projetos.
 Depois de criadas as imagens, o comando de build irá subir uma série de containers definidos no arquivo docker-compose.yml tb na pasta raiz.
 
-
 ### Como acessar.
 
 Depois que todos os containers estiverem rodando, a aplicação fica disponível através de dois serviços.
@@ -46,3 +45,7 @@ Este foi organizado usando principios das arquiteturas limpa e hexagonal e divid
 #### Account Service 
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
 Este foi organizado padrão MVC, bem simples ***controller -> service -> repository -> entity***
+
+### Arquitetura da solução
+![Alt text](img/interacoes-de-dominio.drawio.png?raw=true "Title")
+
