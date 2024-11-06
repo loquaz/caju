@@ -1,5 +1,14 @@
 ## CAJU - Desafio Tecnico
 
+* [Como rodar o projeto](#como-rodar-o-projeto)
+* [Como acessar](#como-acessar)
+* [Arquitetura da solução](#arquitetura-da-solução)
+* [AuthorizerService](#authorizer-service-)
+* [AccountService](#account-service-)
+* [Interação de domínio](#interação-de-domínio)
+* [Questão Aberta- Uma transação por vez](#l4-apenas-uma-transação-por-vez)
+
+
 
 ### Como rodar o projeto
 
