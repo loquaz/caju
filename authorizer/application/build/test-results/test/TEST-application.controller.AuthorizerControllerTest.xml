@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="application.controller.AuthorizerControllerTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-11-06T11:39:43" hostname="serenos-MacBook-Air.local" time="0.516">
+  <properties/>
+  <testcase name="test must fail on not funds from MEAL balance()" classname="application.controller.AuthorizerControllerTest" time="0.456"/>
+  <testcase name="test must success on withdraw 50 reais from FOOD balance fallback()" classname="application.controller.AuthorizerControllerTest" time="0.005"/>
+  <testcase name="test must fail on ACCOUNT NOT FOUND given a wrong accountId()" classname="application.controller.AuthorizerControllerTest" time="0.008"/>
+  <testcase name="test must fail on withdraw 60,001 reais from FOOD balance merchant dependent()" classname="application.controller.AuthorizerControllerTest" time="0.006"/>
+  <testcase name="test must fail on not funds from FOOD balance()" classname="application.controller.AuthorizerControllerTest" time="0.003"/>
+  <testcase name="test must fail on withdraw 61 reais from CASH balance giving FOOD MCC fallback()" classname="application.controller.AuthorizerControllerTest" time="0.003"/>
+  <testcase name="test must success on withdraw 50 reais from FOOD balance()" classname="application.controller.AuthorizerControllerTest" time="0.003"/>
+  <testcase name="test must fail on withdraw 46 reais from CASH balance giving FOOD MCC fallback()" classname="application.controller.AuthorizerControllerTest" time="0.003"/>
+  <testcase name="test must fail on nonexistent MCC()" classname="application.controller.AuthorizerControllerTest" time="0.005"/>
+  <testcase name="test must fail on ACCOUNT NOT FOUND given a wrong accountId, fallback()" classname="application.controller.AuthorizerControllerTest" time="0.004"/>
+  <testcase name="test must fail on withdraw 60,001 reais from CASH balance giving FOOD MCC fallback()" classname="application.controller.AuthorizerControllerTest" time="0.004"/>
+  <testcase name="test must success on withdraw 55 reais from CASH balance giving FOOD MCC fallback()" classname="application.controller.AuthorizerControllerTest" time="0.004"/>
+  <testcase name="test must success on withdraw 44,9 reais from MEAL balance fallback()" classname="application.controller.AuthorizerControllerTest" time="0.003"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2024-11-06T08:39:41.779-03:00  INFO 12118 --- [    Test worker] a.controller.AuthorizerControllerTest    : Starting AuthorizerControllerTest using Java 17.0.13 with PID 12118 (started by serenonascimento in /Users/serenonascimento/development/caju/authorizer/application)
+2024-11-06T08:39:41.781-03:00  INFO 12118 --- [    Test worker] a.controller.AuthorizerControllerTest    : The following 1 profile is active: "test"
+2024-11-06T08:39:42.256-03:00  INFO 12118 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-06T08:39:42.266-03:00  INFO 12118 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2024-11-06T08:39:42.365-03:00  INFO 12118 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5466878-234b-3f7d-a6a9-8c7ce90e7352
+2024-11-06T08:39:42.552-03:00  INFO 12118 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-11-06T08:39:42.560-03:00  INFO 12118 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-06T08:39:42.560-03:00  INFO 12118 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-06T08:39:42.597-03:00  INFO 12118 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-06T08:39:42.598-03:00  INFO 12118 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 800 ms
+2024-11-06T08:39:42.616-03:00  INFO 12118 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-06T08:39:42.708-03:00  INFO 12118 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:a8b9ddf2-a951-4784-b8fc-d5ae97b6e1b3 user=SA
+2024-11-06T08:39:42.709-03:00  INFO 12118 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-06T08:39:42.714-03:00  INFO 12118 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:a8b9ddf2-a951-4784-b8fc-d5ae97b6e1b3'
+2024-11-06T08:39:42.779-03:00  INFO 12118 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06T08:39:42.803-03:00  INFO 12118 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-06T08:39:42.819-03:00  INFO 12118 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-06T08:39:42.948-03:00  INFO 12118 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-06T08:39:43.136-03:00  INFO 12118 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06T08:39:43.139-03:00  INFO 12118 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-06T08:39:43.211-03:00  WARN 12118 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06T08:39:43.470-03:00  INFO 12118 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2024-11-06T08:39:43.470-03:00  INFO 12118 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-11-06T08:39:43.471-03:00  INFO 12118 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-11-06T08:39:43.517-03:00  INFO 12118 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63058 (http) with context path '/'
+2024-11-06T08:39:43.526-03:00  INFO 12118 --- [    Test worker] a.controller.AuthorizerControllerTest    : Started AuthorizerControllerTest in 1.993 seconds (process running for 2.578)
+java.lang.Exception: Não foi possível alcançar o serviço de contas
+com.caju.exception.NotFoundWalletException: [5511] Carteira nao encontrada
+java.lang.Exception: Não foi possível alcançar o serviço de contas
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: test
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.format_sql: true
+
+
+  sql:
+    init:
+      mode: always
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/transaction_authorizer
+#    username: root
+#    password: root1234
+#
+#  jpa:
+#    defer-datasource-initialization: true
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#      #dialect: org.hibernate.dialect.PostgreSQLDialect
+#
+#  sql:
+#    init:
+#      schema-locations: classpath:schema.sql
+#      mode: always
+#
+#
+#feign:
+#  services:
+#    account:
+#      base-url: "localhost:9000"

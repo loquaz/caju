@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - AuthorizerControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>AuthorizerControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/application.controller.html">application.controller</a> &gt; AuthorizerControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">13</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.507s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test must fail on ACCOUNT NOT FOUND given a wrong accountId()</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on ACCOUNT NOT FOUND given a wrong accountId, fallback()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on nonexistent MCC()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on not funds from FOOD balance()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on not funds from MEAL balance()</td>
+<td class="success">0.456s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on withdraw 46 reais from CASH balance giving FOOD MCC fallback()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on withdraw 60,001 reais from CASH balance giving FOOD MCC fallback()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on withdraw 60,001 reais from FOOD balance merchant dependent()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must fail on withdraw 61 reais from CASH balance giving FOOD MCC fallback()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must success on withdraw 44,9 reais from MEAL balance fallback()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must success on withdraw 50 reais from FOOD balance fallback()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must success on withdraw 50 reais from FOOD balance()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test must success on withdraw 55 reais from CASH balance giving FOOD MCC fallback()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2024-11-06T08:39:41.779-03:00  INFO 12118 --- [    Test worker] a.controller.AuthorizerControllerTest    : Starting AuthorizerControllerTest using Java 17.0.13 with PID 12118 (started by serenonascimento in /Users/serenonascimento/development/caju/authorizer/application)
+2024-11-06T08:39:41.781-03:00  INFO 12118 --- [    Test worker] a.controller.AuthorizerControllerTest    : The following 1 profile is active: &quot;test&quot;
+2024-11-06T08:39:42.256-03:00  INFO 12118 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-06T08:39:42.266-03:00  INFO 12118 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2024-11-06T08:39:42.365-03:00  INFO 12118 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5466878-234b-3f7d-a6a9-8c7ce90e7352
+2024-11-06T08:39:42.552-03:00  INFO 12118 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-11-06T08:39:42.560-03:00  INFO 12118 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-06T08:39:42.560-03:00  INFO 12118 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-06T08:39:42.597-03:00  INFO 12118 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-06T08:39:42.598-03:00  INFO 12118 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 800 ms
+2024-11-06T08:39:42.616-03:00  INFO 12118 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-06T08:39:42.708-03:00  INFO 12118 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:a8b9ddf2-a951-4784-b8fc-d5ae97b6e1b3 user=SA
+2024-11-06T08:39:42.709-03:00  INFO 12118 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-06T08:39:42.714-03:00  INFO 12118 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:a8b9ddf2-a951-4784-b8fc-d5ae97b6e1b3'
+2024-11-06T08:39:42.779-03:00  INFO 12118 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06T08:39:42.803-03:00  INFO 12118 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-06T08:39:42.819-03:00  INFO 12118 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-06T08:39:42.948-03:00  INFO 12118 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-06T08:39:43.136-03:00  INFO 12118 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06T08:39:43.139-03:00  INFO 12118 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-06T08:39:43.211-03:00  WARN 12118 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06T08:39:43.470-03:00  INFO 12118 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2024-11-06T08:39:43.470-03:00  INFO 12118 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-11-06T08:39:43.471-03:00  INFO 12118 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-11-06T08:39:43.517-03:00  INFO 12118 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63058 (http) with context path '/'
+2024-11-06T08:39:43.526-03:00  INFO 12118 --- [    Test worker] a.controller.AuthorizerControllerTest    : Started AuthorizerControllerTest in 1.993 seconds (process running for 2.578)
+java.lang.Exception: Não foi possível alcançar o serviço de contas
+com.caju.exception.NotFoundWalletException: [5511] Carteira nao encontrada
+java.lang.Exception: Não foi possível alcançar o serviço de contas
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at Nov 6, 2024, 8:39:44 AM</p>
+</div>
+</div>
+</body>
+</html>

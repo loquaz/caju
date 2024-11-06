@@ -1,0 +1,3 @@
+cd account && ./buildAccountService.sh &&
+cd ../authorizer && ./buildAuthorizerService.sh &&
+cd .. && docker compose --verbose up
