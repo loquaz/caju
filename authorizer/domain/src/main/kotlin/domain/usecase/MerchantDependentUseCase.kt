@@ -40,14 +40,9 @@ class MerchantDependentUseCase(
 
         return try {
 
-            val account = accountGateway.getAccountById( accountId )
+            accountGateway.getAccountById(accountId) ?: throw AccountNotFoundException("Conta não encontrada")
 
-            if( account == null ){
-                throw AccountNotFoundException("Conta não encontrada")
-            }else
-                account
-
-        } catch (e: Exception){
+        } catch (e: Exception) {
             throw Exception("Não foi possível alcançar o serviço de contas", e)
         }
 
