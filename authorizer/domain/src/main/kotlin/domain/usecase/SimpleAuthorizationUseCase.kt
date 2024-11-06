@@ -18,10 +18,7 @@ class SimpleAuthorizationUseCase(
 
         val account = getAccount( authorizationRequest.accountId )
         val wallet  = getWallet(account, authorizationRequest.mcc)
-
-        if( wallet == null ){
-           throw NotFoundWalletException(authorizationRequest.mcc, "Carteira nao encontrada")
-        }
+            ?: throw NotFoundWalletException(authorizationRequest.mcc, "Carteira nao encontrada")
 
         val transaction = buildTransactionObject( account, authorizationRequest, wallet )
 
@@ -38,21 +35,14 @@ class SimpleAuthorizationUseCase(
     private fun getAccount(accountId: UUID) : AccountEntity {
 
         return try {
-
-            val account = accountGateway.getAccountById( accountId )
-
-            if( account == null ){
-                throw AccountNotFoundException("Conta não encontrada")
-            }else
-                account
-
-        } catch (e: Exception){
+            accountGateway.getAccountById(accountId) ?: throw AccountNotFoundException("Conta não encontrada")
+        } catch (e: Exception) {
             throw Exception("Não foi possível alcançar o serviço de contas", e)
         }
 
     }
 
-    fun getWallet(account: AccountEntity, mcc: Int) : WalletEntity? {
+    private fun getWallet(account: AccountEntity, mcc: Int) : WalletEntity? {
         return account.getWalletByMCC( mcc )
     }
 
@@ -67,7 +57,7 @@ class SimpleAuthorizationUseCase(
         )
     }
 
-    fun buildResponse(transaction: domain.entity.TransactionEntity) : AuthorizationResponseEntity {
+    private fun buildResponse(transaction: domain.entity.TransactionEntity) : AuthorizationResponseEntity {
         val status = transaction.status ?: TransactionStatusEnum.ERROR
         return AuthorizationResponseEntity(status, transaction)
     }
