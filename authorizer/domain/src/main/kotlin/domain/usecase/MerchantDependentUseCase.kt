@@ -16,14 +16,8 @@ class MerchantDependentUseCase(
     val mccGateway: MCCByMerchantGateway
 ) : IMerchantDependentUseCase {
     override fun exec(authorizationRequest: AuthorizationRequestEntity): AuthorizationResponseEntity {
-        val account = getAccount( authorizationRequest.accountId )
-        val wallet = getWalletCategoryByMerchantName(authorizationRequest.merchant, account)
-
-
-        if( wallet == null ){
-            TODO("CRIAR EXCEÇÃO PARA CARTEIRA NULA NESSE PONTO")
-        }
-
+        val account     = getAccount( authorizationRequest.accountId )
+        val wallet      = getWalletCategoryByMerchantName(authorizationRequest.merchant, account)
         val transaction = buildTransactionObject( account, authorizationRequest, wallet )
 
         if( transaction.hasFundsOnWallet() ){
@@ -34,13 +28,11 @@ class MerchantDependentUseCase(
 
         transactionGateway.create( transaction )
         return buildResponse( transaction )
-
-
     }
 
     private fun getWalletCategoryByMerchantName(merchant: String, account: AccountEntity ) : WalletEntity {
-        val mcc = mccGateway.getMCC( merchant )
-        val wallet = account.getWalletByMCC(mcc) ?: account.getCASHWallet()
+        val mcc     = mccGateway.getMCC( merchant )
+        val wallet  = account.getWalletByMCC(mcc) ?: account.getCASHWallet()
         return wallet!! //TODO
     }
 
