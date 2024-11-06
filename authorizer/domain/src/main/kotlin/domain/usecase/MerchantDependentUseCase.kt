@@ -39,9 +39,7 @@ class MerchantDependentUseCase(
     private fun getAccount(accountId: UUID) : AccountEntity {
 
         return try {
-
             accountGateway.getAccountById(accountId) ?: throw AccountNotFoundException("Conta não encontrada")
-
         } catch (e: Exception) {
             throw Exception("Não foi possível alcançar o serviço de contas", e)
         }
