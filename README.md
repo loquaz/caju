@@ -18,14 +18,14 @@ pelas contas e saldos (carteiras de benefícios) de cada beneficiário.
 
 São respectivamente AuthorizerService e AccountService.
 
-# Authorizer Service 
+#### Authorizer Service 
 Responsável por receber as requisições dos comerciantes e registrar a transação (persistir).
 Este foi organizado usando principios das arquiteturas limpa e hexagonal e dividido nas seguintes camadas.
 * **aplicação**: porta web e seus adaptadores (controller rest)
 * **domínio**: casos de uso, entidades e gateways (interfaces)
 * **infrastrutura**: adaptadores pros gateways da camada de domínio (banco e cliente http)
 
-# Account Service 
+#### Account Service 
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
 Este foi organizado padrão MVC, bem simples controler -> service -> repository -> entity
 
