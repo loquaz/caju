@@ -16,13 +16,8 @@ class FallbackAuthorizationUseCase(
 
  {
     override fun exec(authorizationRequest: AuthorizationRequestEntity): AuthorizationResponseEntity {
-        val account = getAccount( authorizationRequest.accountId )
-        var wallet  = getWallet(account, authorizationRequest.mcc)
-
-        if( wallet == null ){
-            wallet = account.getCASHWallet()!!
-        }
-
+        val account     = getAccount( authorizationRequest.accountId )
+        val wallet      = getWallet(account, authorizationRequest.mcc) ?: account.getCASHWallet()!!
         val transaction = buildTransactionObject( account, authorizationRequest, wallet )
 
         if( transaction.hasFundsOnWallet() ){
@@ -38,15 +33,8 @@ class FallbackAuthorizationUseCase(
     private fun getAccount(accountId: UUID) : AccountEntity {
 
         return try {
-
-            val account = accountGateway.getAccountById( accountId )
-
-            if( account == null ){
-                throw AccountNotFoundException("Conta não encontrada")
-            }else
-                account
-
-        } catch (e: Exception){
+            accountGateway.getAccountById(accountId) ?: throw AccountNotFoundException("Conta não encontrada")
+        } catch (e: Exception) {
             throw Exception("Não foi possível alcançar o serviço de contas", e)
         }
 
@@ -55,7 +43,7 @@ class FallbackAuthorizationUseCase(
     private fun getWallet(account: AccountEntity, mcc: Int) : WalletEntity? {
         return account.getWalletByMCC( mcc )
     }
-     
+
     private fun buildTransactionObject(account: AccountEntity, authorizationRequest: AuthorizationRequestEntity, walletEntity: WalletEntity) : domain.entity.TransactionEntity {
         return domain.entity.TransactionEntity(
             id = null,
