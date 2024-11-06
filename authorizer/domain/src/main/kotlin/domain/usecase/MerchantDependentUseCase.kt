@@ -64,7 +64,7 @@ class MerchantDependentUseCase(
         )
     }
 
-    fun buildResponse(transaction: domain.entity.TransactionEntity) : AuthorizationResponseEntity {
+    private fun buildResponse(transaction: domain.entity.TransactionEntity) : AuthorizationResponseEntity {
         val status = transaction.status ?: TransactionStatusEnum.ERROR
         return AuthorizationResponseEntity(status, transaction)
     }
