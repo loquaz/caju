@@ -1,17 +1,18 @@
 ## CAJU - Desafio Tecnico
 
 
-Execução: para rodar o projeto, é necessario dar permissâo de execução ao arquivo build na pasta raiz.
-Para isto deve executar o comando abaixo em um terminal
+### Como rodar o projeto
+
+Execução: para rodar o projeto, é necessario executar o script bash *build* na pasta raiz.
+Para isto, em sistemas operacionais *nix like, deve-se executar o comando abaixo em um terminal.
 > $ sudo chmod u+x build
 
-Este script irá entrar nas pastas account e authorizer e executar arquivos de bash de build respectivamente.
+Após isto deve-se executar o script usando o commando
+> $ ./build
 
-Cada um deles vai criar uma imagem docker dos respectivos projetos.
-Depois de criadas as imagens, o comando de build irá subir uma série de containers definidos no arquivo docker-compose.yml tb na pasta raiz.
+(este script irá entrar nas pastas dos projetos account e authorizer, fazer build, gerar imagens docker e tentar subir um docker-compose com tudo o que é necessário).
 
-
-### Como acessar.
+### Como acessar
 
 Depois que todos os containers estiverem rodando, a aplicação fica disponível através de dois serviços.
 
