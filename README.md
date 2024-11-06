@@ -10,6 +10,23 @@ Este script irá entrar nas pastas account e authorizer e executar arquivos de b
 Cada um deles vai criar uma imagem docker dos respectivos projetos.
 Depois de criadas as imagens, o comando de build irá subir uma série de containers definidos no arquivo docker-compose.yml tb na pasta raiz.
 
+### Como acessar.
+
+Depois que todos os containers estiverem rodando, a aplicação fica disponível através de dois serviços.
+
+**Contas**: http://localhost:9001/swagger-ui/index.html
+
+usar endpoint POST /account passando payload 
+> {
+"MEALBalance": 120,
+"FOODBalance": 230,
+"CASHBalance": 230
+} 
+
+para criar uma conta. O response será o id (UUID) necessário para usar no serviço de autorização
+
+**Autorizador**: http://localhost:8080/swagger-ui/index.html
+
 ### Arquitetura da solução
 ![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
 
