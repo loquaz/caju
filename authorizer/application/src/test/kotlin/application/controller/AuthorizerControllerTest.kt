@@ -1,8 +1,6 @@
 package application.controller
 
 import application.http.PaymentAuthorizerApplication
-import domain.usecase.IFallbackAuthorizationUseCase
-import domain.usecase.ISimpleAuthorizationUseCase
 import com.fasterxml.jackson.module.kotlin.jsonMapper
 import configuration.TestConfiguration
 import application.http.controller.ExceptionAdviceController
@@ -23,17 +21,11 @@ import java.util.*
 @ExtendWith(SpringExtension::class)
 @SpringBootTest(classes = [TestConfiguration::class, ExceptionAdviceController::class, PaymentAuthorizerApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-@AutoConfigureMockMvc //need this in Spring Boot test
+@AutoConfigureMockMvc
 class AuthorizerControllerTest {
 
     @Autowired
     lateinit var mockMvc: MockMvc
-
-    @Autowired
-    lateinit var simpleAuthorizationUseCase: ISimpleAuthorizationUseCase
-
-    @Autowired
-    lateinit var fallAuthorizationUseCase: IFallbackAuthorizationUseCase
 
     /*
     POST /authorizer/simple
