@@ -28,6 +28,7 @@ para criar uma conta. O response será o id (UUID) necessário para usar no serv
 
 **Autorizador**: http://localhost:8080/swagger-ui/index.html
 
+
 ### Arquitetura da solução
 ![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
 
@@ -46,3 +47,7 @@ Este foi organizado usando principios das arquiteturas limpa e hexagonal e divid
 #### Account Service 
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
 Este foi organizado padrão MVC, bem simples ***controller -> service -> repository -> entity***
+
+### Arquitetura da solução
+![Alt text](img/interacoes-de-dominio.drawio.png?raw=true "Title")
+
