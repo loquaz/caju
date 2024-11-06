@@ -11,9 +11,9 @@ import domain.gateway.TransactionGateway
 import java.util.*
 
 class MerchantDependentUseCase(
-    val accountGateway: domain.gateway.AccountGateway,
-    val transactionGateway: TransactionGateway,
-    val mccGateway: MCCByMerchantGateway
+    private val accountGateway: domain.gateway.AccountGateway,
+    private val transactionGateway: TransactionGateway,
+    private val mccGateway: MCCByMerchantGateway
 ) : IMerchantDependentUseCase {
     override fun exec(authorizationRequest: AuthorizationRequestEntity): AuthorizationResponseEntity {
         val account     = getAccount( authorizationRequest.accountId )
