@@ -46,6 +46,12 @@ Este foi organizado usando principios das arquiteturas limpa e hexagonal e divid
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
 Este foi organizado padrão MVC, bem simples ***controller -> service -> repository -> entity***
 
-### Arquitetura da solução
+### Interação de domínio
+Segue abaixo diagrama de sequencia que explica parte das interações de domínio.
+* AuthorizerService recebe reuisicao de autorizacao
+* Resgata com em AccountService
+* Checa se é possível autorizar (hhá saldor suficiente e demais regras de acordo com o tipo authorizador)
+* persiste a autorização
+* devolve payload indicando status da requisição (aprovada, rejeitada, erro)
 ![Alt text](img/interacoes-de-dominio.drawio.png?raw=true "Title")
 
