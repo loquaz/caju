@@ -10,8 +10,8 @@ import domain.gateway.TransactionGateway
 import java.util.*
 
 class FallbackAuthorizationUseCase(
-    val accountGateway: domain.gateway.AccountGateway,
-    val transactionGateway: TransactionGateway
+    private val accountGateway: domain.gateway.AccountGateway,
+    private val transactionGateway: TransactionGateway
 ) : IFallbackAuthorizationUseCase
 
  {
@@ -20,7 +20,7 @@ class FallbackAuthorizationUseCase(
         var wallet  = getWallet(account, authorizationRequest.mcc)
 
         if( wallet == null ){
-            TODO("CRIAR EXCEÇÃO PARA CARTEIRA NULA NESSE PONTO")
+            wallet = account.getCASHWallet()!!
         }
 
         val transaction = buildTransactionObject( account, authorizationRequest, wallet )
@@ -28,14 +28,7 @@ class FallbackAuthorizationUseCase(
         if( transaction.hasFundsOnWallet() ){
             accountGateway.withdraw( account, wallet, authorizationRequest.totalAmount )
         }else{
-            wallet = getCASHWallet(account)
-            transaction.wallet = wallet
-
-            if ( transaction.hasFundsOnWallet() ){
-                accountGateway.withdraw( account, wallet!!, authorizationRequest.totalAmount )
-            } else {
-                transaction.status = TransactionStatusEnum.REJECTED
-            }
+            transaction.status = TransactionStatusEnum.REJECTED
         }
 
         transactionGateway.create( transaction )
@@ -59,13 +52,10 @@ class FallbackAuthorizationUseCase(
 
     }
 
-    fun getWallet(account: AccountEntity, mcc: Int) : WalletEntity? {
+    private fun getWallet(account: AccountEntity, mcc: Int) : WalletEntity? {
         return account.getWalletByMCC( mcc )
     }
-     private fun getCASHWallet(account: AccountEntity) : WalletEntity? {
-        return account.getCASHWallet()
-     }
-
+     
     private fun buildTransactionObject(account: AccountEntity, authorizationRequest: AuthorizationRequestEntity, walletEntity: WalletEntity) : domain.entity.TransactionEntity {
         return domain.entity.TransactionEntity(
             id = null,
@@ -77,7 +67,7 @@ class FallbackAuthorizationUseCase(
         )
      }
 
-     fun buildResponse(transaction: domain.entity.TransactionEntity) : AuthorizationResponseEntity {
+     private fun buildResponse(transaction: domain.entity.TransactionEntity) : AuthorizationResponseEntity {
          val status = transaction.status ?: TransactionStatusEnum.ERROR
          return AuthorizationResponseEntity(status, transaction)
      }

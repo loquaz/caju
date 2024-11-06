@@ -92,9 +92,9 @@ class AuthorizerControllerTest {
     }
 
     @Test
-    fun `test must success on withdraw 55 reais from CASH balance giving FOOD MCC fallback`() {
+    fun `test must fail on withdraw 55 reais from CASH balance giving FOOD MCC fallback`() {
         val request     = TransactionRequestDTO( UUID.fromString(TestsUtil.ACCOUNT_ID),BigDecimal(55),5411,"PADARIA DO ZE")
-        val expected    = buildExpectedResponseObject( "00" )
+        val expected    = buildExpectedResponseObject( "51" )
         post("/authorizer/fallback", request, expected)
     }
 
@@ -130,6 +130,13 @@ class AuthorizerControllerTest {
     fun `test must fail on ACCOUNT NOT FOUND given a wrong accountId, fallback`() {
         val request     = TransactionRequestDTO( UUID.fromString(TestsUtil.ACCOUNT_NOT_FOUND_ID),BigDecimal(51.01),5411,"PADARIA DO ZE")
         val expected    = buildExpectedResponseObject( "07" )
+        post("/authorizer/fallback", request, expected)
+    }
+
+    @Test
+    fun `test must fail on NOT FOUND WALLET TYPE given a wrong MCC and merchant not identified, fallback`() {
+        val request     = TransactionRequestDTO( UUID.fromString(TestsUtil.ACCOUNT_ID),BigDecimal(51.01),5501,"NEGOCIO NAO MAPEADO")
+        val expected    = buildExpectedResponseObject( "00" )
         post("/authorizer/fallback", request, expected)
     }
 
