@@ -11,6 +11,7 @@ Cada um deles vai criar uma imagem docker dos respectivos projetos.
 Depois de criadas as imagens, o comando de build irá subir uma série de containers definidos no arquivo docker-compose.yml tb na pasta raiz.
 
 ### Arquitetura da solução
+![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
 
 A solução foi pensada da seguinte maneira, existe uma API REST responsável pela autorização que se cominica com outro mmicroserviço responsável
 pelas contas e saldos (carteiras de benefícios) de cada beneficiário.
@@ -28,5 +29,3 @@ Este foi organizado usando principios das arquiteturas limpa e hexagonal e divid
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
 Este foi organizado padrão MVC, bem simples controler -> service -> repository -> entity
 
-Abaixo segue uma imagem simplificada da arquitetura geral.
-![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
