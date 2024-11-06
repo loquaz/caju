@@ -11,8 +11,8 @@ import domain.gateway.TransactionGateway
 import java.util.*
 
 class SimpleAuthorizationUseCase(
-    val accountGateway: domain.gateway.AccountGateway,
-    val transactionGateway: TransactionGateway
+    private val accountGateway: domain.gateway.AccountGateway,
+    private val transactionGateway: TransactionGateway
 ) : ISimpleAuthorizationUseCase {
     override fun exec(authorizationRequest: AuthorizationRequestEntity): AuthorizationResponseEntity {
 
