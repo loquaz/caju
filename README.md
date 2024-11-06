@@ -27,5 +27,5 @@ Este foi organizado usando principios das arquiteturas limpa e hexagonal e divid
 
 #### Account Service 
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
-Este foi organizado padrão MVC, bem simples controler -> service -> repository -> entity
+Este foi organizado padrão MVC, bem simples ***controller -> service -> repository -> entity***
 
