@@ -56,5 +56,13 @@ Segue abaixo diagrama de sequencia que explica parte das interações de domíni
 * Persiste a autorização
 * Devolve payload indicando status da requisição (aprovada, rejeitada, erro)
 
+Tudo o que está dent do quadro azul, está sob o escopo do serviço de autorização **AuthorizerService**
+
+Tudo o que está em verde está so o escopo do serviço de contas **AccountService**
+
+Pensei em separa-los desta forma para seguir o principio da responsabilidade unica (single responsability principle)
+Onde o seviço autorizador usa o saldo, mas o saldo, como serviço a parte pode ser modificado, versionado e servir a outros serviços
+sem impactar nos "chamadores".
+
 ![Alt text](img/interacoes-de-dominio.drawio.png?raw=true "Title")
 
