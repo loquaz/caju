@@ -49,6 +49,7 @@ Este foi organizado usando principios das arquiteturas limpa e hexagonal e divid
 Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
 Este foi organizado padrão MVC, bem simples ***controller -> service -> repository -> entity***
 
+
 ### Interação de domínio
 Segue abaixo diagrama de sequencia que explica parte das interações de domínio.
 * **AuthorizerService** recebe reuisicao de autorizacao
@@ -78,3 +79,4 @@ que rode na JVM. Além disso a execução da transação estaria controlada dent
 * Havendo erro, rollback em toda a operação
 * Registrar o erro log, monitoria
 * possível mecanismo de retentativa (fila para tentativas falhas?)
+
