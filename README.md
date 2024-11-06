@@ -10,12 +10,39 @@ Este script irá entrar nas pastas account e authorizer e executar arquivos de b
 Cada um deles vai criar uma imagem docker dos respectivos projetos.
 Depois de criadas as imagens, o comando de build irá subir uma série de containers definidos no arquivo docker-compose.yml tb na pasta raiz.
 
-### Arquitetura da solução
 
-A solução foi pensada da seguinte maneira: um serviço é responsável por receber as requisições dos comerciantes e é responsável 
-por registrar uma transação (persistir) no mecanismo de persistencia configurado (para esta poc um banco relacional).
-Este serviço foi projetado usando principios de arquitetura limpa e arquitetura hexagonal. Foi dividido nas seguintes camadas
-* aplicação: por web e seus adaptadores (controller rest)
-* domínio: Casos de Use, Entidades e Gateways (interfaces)
-* infrastrutura: adaptadores pros Gateways da camada de domínio (banco e cliente http)
+### Como acessar.
+
+Depois que todos os containers estiverem rodando, a aplicação fica disponível através de dois serviços.
+
+**Contas**: http://localhost:9001/swagger-ui/index.html
+
+usar endpoint POST /account passando payload 
+> {
+"MEALBalance": 120,
+"FOODBalance": 230,
+"CASHBalance": 230
+} 
+
+para criar uma conta. O response será o id (UUID) necessário para usar no serviço de autorização
+
+**Autorizador**: http://localhost:8080/swagger-ui/index.html
+
+### Arquitetura da solução
 ![Alt text](img/caju-desafio.drawio.png?raw=true "Title")
+
+A solução foi pensada da seguinte maneira, existe uma API REST responsável pela autorização que se cominica com outro mmicroserviço responsável
+pelas contas e saldos (carteiras de benefícios) de cada beneficiário.
+
+São respectivamente AuthorizerService e AccountService.
+
+#### Authorizer Service 
+Responsável por receber as requisições dos comerciantes e registrar a transação (persistir).
+Este foi organizado usando principios das arquiteturas limpa e hexagonal e dividido nas seguintes camadas.
+* **aplicação**: porta web e seus adaptadores (controller rest)
+* **domínio**: casos de uso, entidades e gateways (interfaces)
+* **infrastrutura**: adaptadores pros gateways da camada de domínio (banco e cliente http)
+
+#### Account Service 
+Responsável pelas contas e seus saldos, cria e retorna contas. Atualiza seus saldos.
+Este foi organizado padrão MVC, bem simples ***controller -> service -> repository -> entity***
