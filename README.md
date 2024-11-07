@@ -23,9 +23,9 @@ Após isto deve-se executar o script usando o commando
 
 Alem disso, deve-se criar um arquivo .env ta raiz do projeto com as seguintes variaveis
 
-* DB_USERNAME=_usuario do banco_
-* DB_PASSWORD=_senha para este usuario_
-* DB_NAME=_nome da base de dados_
+* **DB_USERNAME**=_usuario do banco_
+* **DB_PASSWORD**=_senha para este usuario_
+* **DB_NAME**=_nome da base de dados_
 
 
 ### Como acessar
