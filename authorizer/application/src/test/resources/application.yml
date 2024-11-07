@@ -45,3 +45,5 @@ spring:
 #  services:
 #    account:
 #      base-url: "localhost:9000"
+test:
+  caju: oba
