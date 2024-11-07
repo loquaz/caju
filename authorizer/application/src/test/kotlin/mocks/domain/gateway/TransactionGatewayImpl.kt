@@ -1,4 +1,4 @@
-package configuration
+package mocks.domain.gateway
 
 import com.caju.enums.TransactionStatusEnum
 import domain.gateway.TransactionGateway

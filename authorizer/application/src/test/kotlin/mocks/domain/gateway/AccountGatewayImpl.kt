@@ -1,4 +1,4 @@
-package configuration
+package mocks.domain.gateway
 
 import application.controller.TestsUtil
 import com.caju.entity.*
