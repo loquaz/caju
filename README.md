@@ -12,9 +12,9 @@
 
 ### Como rodar o projeto
 
-Execução: para rodar o projeto, é necessario executar o script bash *build* na pasta raiz.
-Para isto, em sistemas operacionais *nix like, deve-se executar o comando abaixo em um terminal.
-> $ sudo chmod u+x build
+Execução: para rodar o projeto, é necessario executar o script bash ***build*** na pasta raiz.
+Para isto, em sistemas operacionais *nix like, deve-se dar permissão de execução deste, e dos arquivos _**account/buildAccountService.sh**_, _**authorizer/buildAuthorizerService.sh**_,  comando abaixo em um terminal.
+> $ sudo chmod u+x build && chmod u+x account/buildAccountService.sh &&  chmod u+x account/buildAuthorizerService.sh 
 
 Após isto deve-se executar o script usando o commando
 > $ ./build
