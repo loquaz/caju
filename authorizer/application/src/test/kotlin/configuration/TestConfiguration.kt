@@ -3,6 +3,8 @@ package configuration
 import domain.gateway.TransactionGateway
 import domain.usecase.*
 import infrastructure.data.db.InMemoryMCCByMerchantNameGatewayImpl
+import mocks.domain.gateway.AccountGatewayImpl
+import mocks.domain.gateway.TransactionGatewayImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -28,7 +30,7 @@ class TestConfiguration {
 
     @Bean
     fun fallbackAuthorizationUseCase() : IFallbackAuthorizationUseCase {
-        return domain.usecase.FallbackAuthorizationUseCase(accountGateway(), transactionGateway())
+        return FallbackAuthorizationUseCase(accountGateway(), transactionGateway())
     }
 
     @Bean
